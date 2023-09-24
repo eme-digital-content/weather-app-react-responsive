@@ -1,0 +1,140 @@
+@font-face {
+  font-family: "Pacifico";
+  src: url("./fonts/Pacifico-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  color: #dfdce3;
+  background-color: #4abdac;
+  background: linear-gradient(to top, #4abdac 0%, #dfdce3 100%);
+  font-family: "Lato", sans-serif;
+}
+
+.container {
+  margin-top: 25px;
+  background-color: #4abdac;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 10px;
+  padding: 0;
+}
+
+.Header {
+  text-align: center;
+  font-size: 100px;
+  line-height: 48px;
+  font-weight: 900;
+  margin: 0;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  color: #fc4a1a;
+  font-family: "Pacifico", cursive;
+}
+
+.Footer {
+  text-align: center;
+  font-size: large;
+  background-color: #f7b733;
+  margin-top: 10px;
+}
+
+.author,
+.repo {
+  color: #dfdce3;
+  text-decoration: none;
+}
+
+.author:hover,
+.repo:hover {
+  text-decoration: underline;
+  color: #fc4a1a;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.WeatherConditions {
+  width: 120px;
+  height: 80px;
+  border-radius: 10%;
+  background: #f7b733;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.WeatherInfo,
+.WeatherForecast {
+  flex-basis: 100%;
+}
+
+.Fahrenheit {
+  text-decoration: underline;
+  color: #fc4a1a;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.WeatherTemperature a.Fahrenheit.active {
+  color: #fc4a1a;
+}
+
+form {
+  display: flex;
+  color: #dfdce3;
+  font-size: 14px;
+}
+
+.type-city {
+  color: #f7b733;
+  margin: 2px;
+  padding-left: 2px;
+  text-align: left;
+  border-radius: 6px;
+  font-style: bold;
+}
+
+.search,
+.current-location {
+  color: #dfdce3;
+  background-color: #f7b733;
+  border-color: #f7b733;
+  border-radius: 6px;
+}
+
+.search:hover {
+  cursor: pointer;
+  background: #dfdce3;
+  color: #f7b733;
+  border-color: #dfdce3;
+  border-radius: 6px;
+  border: 1px solid #dfdce3;
+  transition: all 200ms ease-in-out;
+}
+
+@media (max-width: 576px) {
+  .WeatherTemperature {
+    font-size: 24px;
+  }
+
+  .WeatherConditions {
+    width: 115px;
+    height: 65px;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .Cities {
+    display: none;
+  }
+}

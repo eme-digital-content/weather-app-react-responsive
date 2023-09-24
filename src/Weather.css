@@ -1,0 +1,107 @@
+@font-face {
+  font-family: "Lato";
+  src: url("./fonts/Lato-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+.Weather {
+  font-family: "Lato", sans-serif;
+  border-radius: 4px;
+  color: #dfdce3;
+  margin-right: -25px;
+  margin-left: 30px;
+}
+
+.type-city {
+  width: 100%;
+  color: #f7b733;
+  margin: 1px;
+  padding-left: 2px;
+  text-align: left;
+  border-radius: 6px;
+  font-style: bold;
+  margin-bottom: -100px;
+}
+
+.Weather h1 {
+  font-size: 24px;
+  font-weight: 100;
+  margin: 20px 0 0 20px;
+  line-height: 29px;
+}
+
+.date {
+  margin: 0 0 0 20px;
+}
+
+.Weather ul {
+  margin: 0;
+  padding: 0;
+}
+
+.Weather li {
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 19px;
+  list-style: none;
+}
+
+.Weather .temperature {
+  font-weight: bold;
+  color: #dfdce3;
+  font-size: 64px;
+  line-height: 64px;
+  margin-left: -15px;
+  font-weight: 400;
+}
+
+.Weather canvas {
+  margin: 10px auto;
+}
+
+.Weather .unit {
+  color: #dfdce3;
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+  line-height: 1;
+  top: -34px;
+}
+.Weather form {
+  margin-top: -15px;
+}
+
+@media (max-width: 576px) {
+  .Weather h1 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .Weather .temperature {
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  .Weather .unit {
+    font-size: 14px;
+    top: -24px;
+  }
+
+  .Weather {
+    margin: 0;
+    padding: 10px;
+  }
+
+  .WeatherInfo .row {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .WeatherInfo .col-3 {
+    flex-basis: 30%;
+    max-width: 30%;
+    margin-top: 10px;
+  }
+}

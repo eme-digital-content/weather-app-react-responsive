@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import "./Weather.css";
@@ -8,10 +8,6 @@ import WeatherForecast from "./WeatherForecast";
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
-
-  useEffect(() => {
-    search(city);
-  }, [city]);
 
   function handleResponse(response) {
     setWeatherData({
@@ -41,11 +37,15 @@ export default function Weather(props) {
     setCity(event.target.value);
   }
 
-  function search(cityName) {
+  const search = useCallback((cityName) => {
     const apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
-  }
+  }, []);
+
+  useEffect(() => {
+    search(city);
+  }, [search, city]);
 
   function handleCurrentLocationClick() {
     if ("geolocation" in navigator) {

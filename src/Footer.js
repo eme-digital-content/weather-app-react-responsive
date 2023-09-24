@@ -9,7 +9,7 @@ export default function Footer() {
       <span>
         {" "}
         <a
-          href="https://github.com/mbellorin2/my-react-weather-app"
+          href="https://github.com/mbellorin2/weather-app-update"
           target="_blank"
           rel="noreferrer"
           className="repo"

@@ -10,7 +10,7 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
 
   useEffect(() => {
-    search();
+    search(city);
   }, [city]);
 
   function handleResponse(response) {
@@ -34,16 +34,34 @@ export default function Weather(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    search();
+    search(city);
   }
 
   function handleCityChange(event) {
     setCity(event.target.value);
   }
 
-  function search() {
+  function search(cityName) {
     const apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function handleCurrentLocationClick() {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        searchByCoordinates(latitude, longitude);
+      });
+    } else {
+      alert("Geolocation is not available in your browser.");
+    }
+  }
+
+  function searchByCoordinates(latitude, longitude) {
+    const apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
   }
 
@@ -70,7 +88,7 @@ export default function Weather(props) {
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <p class="type-city">Search for a city</p>
+        <p className="type-city">Search for a city</p>
         <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-9">
@@ -92,6 +110,11 @@ export default function Weather(props) {
           </div>
         </form>
         <Cities />
+        <button onClick={handleCurrentLocationClick} className="search">
+          Current Location
+        </button>
+        <br />
+        <br />
         <button onClick={handleNewYorkClick} class="popular-city">
           New York
         </button>
@@ -108,12 +131,11 @@ export default function Weather(props) {
           Lima
         </button>
         <WeatherInfo data={weatherData} />
-        <br></br>
+        <br />
         <WeatherForecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {
-    search();
     return "Loading...";
   }
 }

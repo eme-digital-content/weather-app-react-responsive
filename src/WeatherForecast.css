@@ -1,0 +1,31 @@
+.WeatherForecast {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+  border: 2px solid #f7b733;
+  border-radius: 10px;
+  box-sizing: border-box;
+  width: 80%;
+  margin-left: 35px;
+}
+
+.WeatherForecast-temperature-min,
+.min-temp {
+  opacity: 0.6;
+  margin-left: 5px;
+  color: #fc4a1a;
+}
+
+@media (max-width: 576px) {
+  .WeatherForecast {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .WeatherForecast-temperature-min,
+  .min-temp {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+}

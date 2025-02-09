@@ -11,4 +11,4 @@ Using **My Weather App**, you can check:
 
 The app is more responsive that [App V1](https://github.com/eme-digital-content/weather-app-local-basic) and has more funcionalities compared to [App V2](https://github.com/eme-digital-content/my-react-weather-app-final). Additionally, unit convertion is working for temperature in **current weather** and **forecast**.
 
-[![🌐 Go to the app](https://img.shields.io/badge/🌐-Go_to_the_app-0D6EFD?style=for-the-badge)](https://my-react-weather-app-final.netlify.app/)
+[![🌐 Go to the app](https://img.shields.io/badge/🌐-Go_to_the_app-0D6EFD?style=for-the-badge)](https://weather-app-react-responsive.netlify.app/)
